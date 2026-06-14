@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skycast — Weather App</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+
+  <div class="app-wrapper">
+
+    <header class="app-header">
+      <div class="logo">
+        <span class="logo-icon">◎</span>
+        <span class="logo-text">Skycast</span>
+      </div>
+    </header>
+
+    <main class="app-main">
+
+      <!-- Search -->
+      <section class="search-section">
+        <h1 class="headline">What's the sky doing<br /><span class="headline-accent">where you are?</span></h1>
+        <div class="search-bar">
+          <input
+            type="text"
+            id="cityInput"
+            class="search-input"
+            placeholder="Enter city name…"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button class="search-btn" id="searchBtn" aria-label="Search">
+            <span class="search-btn-icon">→</span>
+          </button>
+        </div>
+        <p class="search-hint" id="searchHint">Try "Tokyo", "London", or "New York"</p>
+      </section>
+
+      <!-- Weather Card -->
+      <section class="weather-card" id="weatherCard" aria-live="polite">
+
+        <!-- Loading State -->
+        <div class="state-loading" id="stateLoading">
+          <div class="loader-ring"></div>
+          <p>Reading the sky…</p>
+        </div>
+
+        <!-- Error State -->
+        <div class="state-error" id="stateError">
+          <span class="error-icon">✕</span>
+          <p class="error-msg" id="errorMsg">City not found. Check the spelling and try again.</p>
+        </div>
+
+        <!-- Weather Data -->
+        <div class="state-data" id="stateData">
+
+          <div class="location-row">
+            <div class="location-pin">◉</div>
+            <div class="location-info">
+              <h2 class="city-name" id="cityName">—</h2>
+              <p class="country-name" id="countryName">—</p>
+            </div>
+            <div class="local-time" id="localTime">—</div>
+          </div>
+
+          <div class="weather-hero">
+            <div class="weather-icon-wrap">
+              <img class="weather-icon" id="weatherIcon" src="" alt="" />
+              <div class="icon-glow"></div>
+            </div>
+            <div class="temp-block">
+              <span class="temp-value" id="tempValue">—</span>
+              <span class="temp-unit">°C</span>
+            </div>
+          </div>
+
+          <p class="condition-label" id="conditionLabel">—</p>
+          <p class="feels-like" id="feelsLike">Feels like —°C</p>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-icon">💧</span>
+              <span class="stat-label">Humidity</span>
+              <span class="stat-value" id="humidity">—</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-icon">🌬</span>
+              <span class="stat-label">Wind</span>
+              <span class="stat-value" id="windSpeed">—</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-icon">👁</span>
+              <span class="stat-label">Visibility</span>
+              <span class="stat-value" id="visibility">—</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-icon">🌡</span>
+              <span class="stat-label">Pressure</span>
+              <span class="stat-value" id="pressure">—</span>
+            </div>
+          </div>
+
+          <div class="sun-row">
+            <div class="sun-item">
+              <span class="sun-label">Sunrise</span>
+              <span class="sun-value" id="sunrise">—</span>
+            </div>
+            <div class="sun-divider"></div>
+            <div class="sun-item">
+              <span class="sun-label">Sunset</span>
+              <span class="sun-value" id="sunset">—</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="app-footer">
+      <p>Data via <a href="https://openweathermap.org" target="_blank" rel="noopener">OpenWeatherMap</a></p>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
